@@ -33,6 +33,9 @@
      echo "<h2>An Image Please.</h2>";
     }else{
      $filename = $img['tmp_name'];
+	 $width = $_POST['width'];
+	 $height = $_POST['height'];
+	 //echo '<pre>'; print_r($_FILES['img']);
      $client_id="0d93f7697b9922d";//Your Client ID here
      $handle = fopen($filename, "r");
      $data = fread($handle, filesize($filename));
@@ -50,8 +53,10 @@
      $pms = json_decode($out,true);
      $url=$pms['data']['link'];
      if($url!=""){
-      echo "<h2>Uploaded Without Any Problem</h2>";
-      echo "<img src='$url'/>";
+      echo "<h2>Uploaded Without Any Problem on Imgur</h2>";
+      echo "<img src='$url' width='$width' height='$width' /><br/><br/>";
+	  echo "Image Width: $width px<br/>";
+	  echo "Image Height: $height px<br/>";
      }else{
       echo "<h2>There's a Problem</h2>";
       echo $pms['data']['error']['message'];
@@ -65,6 +70,7 @@
    border:none;
    padding:8px;
   }
+  img{border: 1px solid #000;	}
   </style>
  </body>
 </html>
