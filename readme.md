@@ -1,6 +1,5 @@
-#############################################
-Image upload in imgur using core php and curl
-#############################################
+
+## Image upload in imgur using core php and curl
 
 **********************
 Steps to run the code:
